@@ -15,5 +15,15 @@
       "name": "Ana Silva",
       "email": "anasilva@negocio.com"
     }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "First note",
+      "content": "Here is the content",
+      "createdAt": "",
+      "deleted": true
+    }
   ]
 }
