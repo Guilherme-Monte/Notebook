@@ -2,12 +2,12 @@
   "users": [
     {
       "id": 1,
-      "name": "Arthur Oliveira",
-      "email": "aoliveira@cod3r.com.br"
+      "name": "Adriano Oliveira",
+      "email": "aoliveira@email.com.br"
     },
     {
       "id": 2,
-      "name": "Maria Julia da Silva",
+      "name": "Marcela Julia da Silva",
       "email": "mjds@empresa.com"
     },
     {
@@ -20,10 +20,26 @@
     {
       "id": 1,
       "userId": 1,
-      "title": "First note",
-      "content": "Here is the content",
+      "title": "Here's the title",
+      "content": "Here's the content",
       "createdAt": "",
-      "deleted": true
+      "deleted": false
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Title number 2",
+      "content": "Here's the second note's content",
+      "createdAt": "",
+      "deleted": false
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "title": "Back to normal: Title number 3",
+      "content": "I will update the textbox tomorrow",
+      "createdAt": "",
+      "deleted": false
     }
   ]
 }
