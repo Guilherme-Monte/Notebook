@@ -25,18 +25,21 @@ const Content = () => {
   const renderUserInfo = users.map((user) => {
     // Warning each list element must have a unique key prop: https://reactjs.org/docs/lists-and-keys.html#keys
     return (
-      <ul>
-        <li key={user.id}>Id: {user.id}</li>
-        <li key={user.name}>Name: {user.name}</li>
-        <li key={user.email}>Email: {user.email}</li>
+      <ul key={user.id}>
+        <li>Id: {user.id}</li>
+        <li>Name: {user.name}</li>
+        <li>Email: {user.email}</li>
       </ul>
     )
   });
 
   async function getNoteInfo() {
-    const response = await api.get(`/notes/${selectedId}`);
-    // .catch((err) => console.log(err)); check https://stackoverflow.com/questions/55983047/strange-behavior-of-react-hooks-delayed-data-update to learn about what is crashing the website
-    setNote(response.data);
+    try {
+      const response = await api.get(`/notes/${selectedId}`);
+      setNote(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const renderNoteInfo = () => {
@@ -62,6 +65,8 @@ const Content = () => {
   };
 
   async function saveNote(note) {
+    console.log({ ...note });
+
     const response = await api.put(`/notes/${note.id}`, {
       id: note.id,
       userId: note.userId,
@@ -72,6 +77,7 @@ const Content = () => {
     })
       .catch((err) => console.log(err));
     getNoteInfo();
+
     console.log(response);
 
     return response;
