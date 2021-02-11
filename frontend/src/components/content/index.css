@@ -1,3 +1,9 @@
 #content {
     grid-area: content;
+
+    height: calc(100vh - 70px);
+}
+
+.d-none {
+    display: none;
 }

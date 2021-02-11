@@ -1,33 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "./index.css";
 import { api } from "../../services/api";
+import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Content = () => {
-  // const [users, setUsers] = useState([]);
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
+  const toggleButton = useContext(SidebarButtonContext);
 
   React.useEffect(() => {
     getNoteInfo();
     // If you put the function on the array it will render infinitely
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
-
-  // async function getUserInfo() {
-  //   const response = await api.get("/users")
-  //   setUsers(response.data);
-  // };
-
-  // const renderUserInfo = users.map((user) => {
-  //   // This is here for me to remember to assign a unique key prop to each ul
-  //   return (
-  //     <ul key={user.id}>
-  //       <li>Id: {user.id}</li>
-  //       <li>Name: {user.name}</li>
-  //       <li>Email: {user.email}</li>
-  //     </ul>
-  //   )
-  // });
 
   async function createNote(note) {
     const rawDate = new Date();
@@ -40,6 +25,11 @@ const Content = () => {
       deleted: note.deleted
     })
       .catch((err) => console.log(err));
+
+    // Hides the creation form:
+    toggleButton();
+    getNoteInfo();
+
     return response;
   };
 
@@ -125,10 +115,10 @@ const Content = () => {
 
   return (
     <div id="content">
-      <h2>{renderNoteInfo()}</h2>
+      <h2 id="noteInfo">{renderNoteInfo()}</h2>
+      <h2 id="createNote" className="d-none">{saveNoteForm()}</h2>
       <button onClick={previousNote}>Previous</button>
       <button onClick={nextNote}>Next</button>
-      <h2>{saveNoteForm()}</h2>
     </div>
   )
 }
