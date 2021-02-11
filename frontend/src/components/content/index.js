@@ -3,13 +3,9 @@ import "./index.css";
 import { api } from "../../services/api";
 
 const Content = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
-
-  React.useEffect(() => {
-    getUserInfo();
-  }, []);
 
   React.useEffect(() => {
     getNoteInfo();
@@ -17,21 +13,59 @@ const Content = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
 
-  async function getUserInfo() {
-    const response = await api.get("/users")
-    setUsers(response.data);
+  // async function getUserInfo() {
+  //   const response = await api.get("/users")
+  //   setUsers(response.data);
+  // };
+
+  // const renderUserInfo = users.map((user) => {
+  //   // This is here for me to remember to assign a unique key prop to each ul
+  //   return (
+  //     <ul key={user.id}>
+  //       <li>Id: {user.id}</li>
+  //       <li>Name: {user.name}</li>
+  //       <li>Email: {user.email}</li>
+  //     </ul>
+  //   )
+  // });
+
+  async function createNote(note) {
+    const rawDate = new Date();
+    const todaysDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`;
+
+    const response = await api.post("/notes", {
+      title: note.title,
+      content: note.content,
+      createdAt: todaysDate,
+      deleted: note.deleted
+    })
+      .catch((err) => console.log(err));
+    return response;
   };
 
-  const renderUserInfo = users.map((user) => {
-    // Warning each list element must have a unique key prop: https://reactjs.org/docs/lists-and-keys.html#keys
+  const saveNoteForm = () => {
     return (
-      <ul key={user.id}>
-        <li>Id: {user.id}</li>
-        <li>Name: {user.name}</li>
-        <li>Email: {user.email}</li>
-      </ul>
+      <section id="newNote">
+        <input type="text" defaultValue="" placeholder="Write the title here"
+          onChange={(e) => {
+            console.log(note.title);
+            setNote(
+              { userId: note.userId, title: e.target.value, content: note.content, deleted: note.deleted }
+            )
+          }} />
+
+        <input type="text" defaultValue="" placeholder="Type the content here"
+          onChange={(e) => {
+            console.log(note.content);
+            setNote(
+              { userId: note.userId, title: note.title, content: e.target.value, deleted: note.deleted }
+            )
+          }} />
+
+        <button onClick={(e) => { createNote(note) }}>Create</button>
+      </section>
     )
-  });
+  };
 
   async function getNoteInfo() {
     try {
@@ -44,7 +78,7 @@ const Content = () => {
 
   const renderNoteInfo = () => {
     return (
-      <section id="note">
+      <section id="noteContent">
         <input type="text" defaultValue={note.title} placeholder="Title"
           onChange={(e) => {
             setNote(
@@ -59,14 +93,12 @@ const Content = () => {
             )
           }} />
 
-        <button onClick={(e) => { saveNote(note) }}>Salvar</button>
+        <button onClick={(e) => { saveNote(note) }}>Save</button>
       </section>
     )
   };
 
   async function saveNote(note) {
-    console.log({ ...note });
-
     const response = await api.put(`/notes/${note.id}`, {
       id: note.id,
       userId: note.userId,
@@ -77,8 +109,6 @@ const Content = () => {
     })
       .catch((err) => console.log(err));
     getNoteInfo();
-
-    console.log(response);
 
     return response;
   };
@@ -95,10 +125,10 @@ const Content = () => {
 
   return (
     <div id="content">
-      <h2>{renderUserInfo}</h2>
       <h2>{renderNoteInfo()}</h2>
       <button onClick={previousNote}>Previous</button>
       <button onClick={nextNote}>Next</button>
+      <h2>{saveNoteForm()}</h2>
     </div>
   )
 }
