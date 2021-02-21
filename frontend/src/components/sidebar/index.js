@@ -3,7 +3,7 @@ import "./index.css";
 import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Sidebar = () => {
-    const toggleButton = useContext(SidebarButtonContext);
+    const toggleInputs = useContext(SidebarButtonContext);
     // const toggleInputs = () => {
     //     const forms = document.getElementsByTagName("h2");
     //     forms[0].classList.toggle("d-none");
@@ -13,7 +13,7 @@ const Sidebar = () => {
 
     return (
         <div id="sidebar">
-            <button className="btn" onClick={toggleButton}>New note</button>
+            <button className="btn" onClick={toggleInputs}>New note</button>
         </div>
     )
 }

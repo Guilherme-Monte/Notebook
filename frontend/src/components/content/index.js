@@ -6,7 +6,7 @@ import { SidebarButtonContext } from '../../SidebarButtonContext';
 const Content = () => {
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
-  const toggleButton = useContext(SidebarButtonContext);
+  const toggleInputs = useContext(SidebarButtonContext);
 
   React.useEffect(() => {
     getNoteInfo();
@@ -27,13 +27,13 @@ const Content = () => {
       .catch((err) => console.log(err));
 
     // Hides the creation form:
-    toggleButton();
+    toggleInputs();
     getNoteInfo();
 
     return response;
   };
 
-  const saveNoteForm = () => {
+  const createNoteForm = () => {
     return (
       <section id="newNote">
         <input type="text" defaultValue="" placeholder="Write the title here"
@@ -57,12 +57,14 @@ const Content = () => {
     )
   };
 
+  // Do the id verification for when id numbers aren't perfect, intead of 1, 2, 3 we have 1, 5, 7 because the other ones have been deleted
   async function getNoteInfo() {
     try {
       const response = await api.get(`/notes/${selectedId}`);
       setNote(response.data);
     } catch (error) {
-      console.log(error);
+      // Code on this part to handle the issue
+      console.log(error.response.status);
     }
   };
 
@@ -84,6 +86,7 @@ const Content = () => {
           }} />
 
         <button onClick={(e) => { saveNote(note) }}>Save</button>
+        <button onClick={(e) => { deleteNote(note) }}>Delete</button>
       </section>
     )
   };
@@ -103,6 +106,15 @@ const Content = () => {
     return response;
   };
 
+  async function deleteNote(note) {
+    try {
+      const response = await api.delete(`/notes/${selectedId}`)
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   function nextNote() {
     setSelectedId(selectedId + 1);
     getNoteInfo();
@@ -116,7 +128,7 @@ const Content = () => {
   return (
     <div id="content">
       <h2 id="noteInfo">{renderNoteInfo()}</h2>
-      <h2 id="createNote" className="d-none">{saveNoteForm()}</h2>
+      <h2 id="createNote" className="d-none">{createNoteForm()}</h2>
       <button onClick={previousNote}>Previous</button>
       <button onClick={nextNote}>Next</button>
     </div>

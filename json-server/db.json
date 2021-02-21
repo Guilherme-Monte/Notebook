@@ -26,8 +26,8 @@
     },
     {
       "id": 2,
-      "title": "Title number 2",
-      "content": "Here's the second note's content",
+      "title": "Number 2",
+      "content": "Here's the content",
       "createdAt": "",
       "deleted": false
     },
