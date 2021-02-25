@@ -1,21 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import "./index.css";
 import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Sidebar = () => {
-    const toggleInputs = useContext(SidebarButtonContext);
-    // const toggleInputs = () => {
-    //     const forms = document.getElementsByTagName("h2");
-    //     forms[0].classList.toggle("d-none");
-    //     forms[1].classList.toggle("d-none");
-    //     console.log("its me");
-    // }
+  const toggleInputs = useContext(SidebarButtonContext);
+  const [buttonNameSwitcher, setButtonNameSwitcher] = useState(false);
 
-    return (
-        <div id="sidebar">
-            <button className="btn" onClick={toggleInputs}>New note</button>
-        </div>
-    )
+  const switchName = () => {
+    setButtonNameSwitcher(!buttonNameSwitcher);
+  }
+
+  return (
+    <div id="sidebar">
+      <button className="btn" onClick={() => { toggleInputs(); switchName() }}>
+        {buttonNameSwitcher ? "Back" : "New note"}
+      </button>
+    </div>
+  )
 }
 
 export default Sidebar;
