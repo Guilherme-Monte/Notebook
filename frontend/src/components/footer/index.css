@@ -1,3 +1,5 @@
 #footer {
     grid-area: footer;
+
+    background-color: var(--bg-main);
 }

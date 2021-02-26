@@ -1,3 +1,10 @@
 #menu {
     grid-area: menu;
+    height: 100%;
+
+    padding-left: 8rem;
+    background-color: var(--bg-main);
+    /* background-clip: content-box;
+    box-shadow: inset 8rem 0 0 0 lightblue; */
+    z-index: -1;
 }

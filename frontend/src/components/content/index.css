@@ -2,6 +2,12 @@
     grid-area: content;
 
     height: calc(100vh - 70px);
+    padding-left: 8rem;
+
+    background-color: var(--bg-main);
+    /* background-clip: content-box;
+    box-shadow: inset 8rem 0 0 0 var(--bg-primary); */
+    z-index: -1;
 }
 
 .d-none {
