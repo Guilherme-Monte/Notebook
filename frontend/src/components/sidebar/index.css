@@ -9,8 +9,9 @@
   align-items: center;
 
   background-color: var(--bg-primary);
+  width: 100%;
 
-  transition: width;
+  transition: width 200ms ease;
 }
 
 
