@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import "./index.css";
 import { SidebarButtonContext } from '../../SidebarButtonContext';
+import { FaFolderPlus, FaSun } from "react-icons/fa";
 
 const Sidebar = () => {
   const toggleInputs = useContext(SidebarButtonContext);
@@ -12,8 +13,11 @@ const Sidebar = () => {
 
   return (
     <div id="sidebar">
-      <div className="nav-item" onClick={() => { toggleInputs(); switchName() }}>
-        <span className="link-text">{buttonNameSwitcher ? "Back" : "New note"}</span>
+      <div className="nav-item">
+        <FaFolderPlus className="icons" />
+        <span className="link-text" onClick={() => { toggleInputs(); switchName() }}>
+          {buttonNameSwitcher ? "Back" : "New note"}
+        </span>
       </div>
       {/* <div className="nav-item">
         <span className="link-text">Cats</span>
@@ -28,6 +32,7 @@ const Sidebar = () => {
         <span className="link-text">Shuttle</span>
       </div> */}
       <div className="nav-item">
+        <FaSun className="icons" />
         <span className="link-text">Themify</span>
       </div>
     </div>

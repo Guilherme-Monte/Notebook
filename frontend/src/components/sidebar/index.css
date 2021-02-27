@@ -1,6 +1,3 @@
-#sidebar:hover {
-  width: 16rem;
-}
 #sidebar {
   grid-area: sidebar;
 
@@ -12,8 +9,16 @@
   width: 100%;
 
   transition: width 200ms ease;
+  z-index: 1;
 }
 
+#sidebar:hover {
+  width: 16rem;
+}
+
+#sidebar:hover .link-text {
+  display: block;
+}
 
 .nav-item:last-child {
   margin-top: auto;
@@ -38,9 +43,17 @@
 }
 
 .link-text {
+  margin-left: 1rem;
+  display: none;
   transition: var(--transition-speed);
 }
 
-.link-text:hover {
+.icons {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.link-text:hover, .icons:hover {
   color: #a55eea;
+  cursor: pointer;
 }
