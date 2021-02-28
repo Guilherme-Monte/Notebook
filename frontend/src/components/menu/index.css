@@ -2,9 +2,33 @@
     grid-area: menu;
     height: 100%;
 
-    padding-left: 2rem;
+    padding: 0 2rem;
     background-color: var(--bg-main);
     /* background-clip: content-box;
     box-shadow: inset 8rem 0 0 0 lightblue; */
-    /* z-index: -1; */
+    z-index: 0;
+    border-bottom: 1px solid var(--text-primary);
+
+    display: flex;
+    align-items: center;
+
+    font-size: 1.2rem;
+}
+
+.stats {
+    margin-left: auto;
+    
+    cursor: pointer;
+    display: flex;
+    transition: color var(--transition-speed);
+}
+
+.stats:hover {
+    color: var(--bright-purple);
+}
+
+.graph {
+    margin-left: 0.5rem;
+    height: 30px;
+    width: 30px;
 }

@@ -66,5 +66,13 @@
       "deleted": false,
       "id": 7
     }
+  ],
+  "stats": [
+    {
+      "createdNotes": 0,
+      "deletedNotes": 0,
+      "clicksOnStats": 0,
+      "themeChanges": 0
+    }
   ]
 }

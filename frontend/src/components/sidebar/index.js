@@ -15,7 +15,6 @@ const Sidebar = () => {
     <div id="sidebar">
       <div className="nav-item">
         <FaFolderPlus className="icons" />
-        {/* Consertar o erro de ao clicar em Create o nome do botão continua Back */}
         <span className="link-text" onClick={() => { toggleInputs(); switchName() }}>
           {buttonNameSwitcher ? "Back" : "New note"}
         </span>
