@@ -50,6 +50,7 @@
   width: 1.3rem;
   height: 1.3rem;
   transition: var(--transition-speed);
+  color: var(--text-primary);
 }
 
 .link-text:hover, .icons:hover {

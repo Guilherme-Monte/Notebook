@@ -1,5 +1,22 @@
 #footer {
     grid-area: footer;
 
-    background-color: var(--bg-main);
+    background-color: var(--bg-primary);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#socials {
+    display: flex;
+    align-items: center;
+}
+
+#socials > * {
+    margin: 0 0.5rem;
+}
+
+#my-name {
+    color: gold;
 }
