@@ -8,7 +8,7 @@ const Footer = () => {
         <div id="footer">
             <div>Made by <span id="my-name">Guilherme Montenegro</span></div>
             <span id="socials">
-                Check out my socials here:
+                Check out my socials:
                 <a href="https://github.com/Guilherme-Monte" target="_blank" rel="noreferrer">
                     <DiGithubBadge className="icons" />
                 </a>
