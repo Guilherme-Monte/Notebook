@@ -1,12 +1,67 @@
 #content {
-    grid-area: content;
+  grid-area: content;
 
-    height: calc(100vh - 70px);
-    padding-left: 2rem;
+  height: calc(100vh - 70px);
+  padding: 0 2rem;
 
-    background-color: var(--bg-main);
+  background-color: var(--bg-main);
 }
 
 .d-none {
-    display: none;
+  display: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-content {
+  width: 49%;
+  height: 1.8rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+
+  background-color: var(--bright-purple);
+}
+
+.btn-content:focus,
+input:focus {
+  outline: none !important;
+}
+
+.btn-content:active {
+  background-color: var(--text-secondary);
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.note-title {
+  width: 99.65%;
+  height: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.note-content {
+  width: 99.65%;
+  height: 32rem;
+  font-size: 1.5rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.note-title,
+.note-content {
+  width: 99.65%;
+  background-color: var(--text-primary);
 }

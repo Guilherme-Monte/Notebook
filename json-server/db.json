@@ -18,53 +18,10 @@
   ],
   "notes": [
     {
-      "id": 1,
-      "title": "Here's the title",
-      "content": "Here's the content",
-      "createdAt": "",
-      "deleted": false
-    },
-    {
-      "id": 2,
-      "title": "Number 2",
-      "content": "Here's the content",
-      "createdAt": "",
-      "deleted": false
-    },
-    {
-      "id": 3,
-      "title": "Back to normal: Title number 3",
-      "content": "I will update the textbox tomorrow",
-      "createdAt": "",
-      "deleted": false
-    },
-    {
-      "title": "Title number 4",
-      "content": "Content of the fourth note",
-      "createdAt": "11/2/2021",
-      "deleted": false,
-      "id": 4
-    },
-    {
-      "title": "Title 5",
-      "content": "Content 5",
-      "createdAt": "11/2/2021",
-      "deleted": false,
-      "id": 5
-    },
-    {
-      "title": "Title 6",
-      "content": "Content 6",
-      "createdAt": "11/2/2021",
-      "deleted": false,
-      "id": 6
-    },
-    {
-      "title": "Título",
-      "content": "Conteúdo",
-      "createdAt": "27/2/2021",
-      "deleted": false,
-      "id": 7
+      "title": "What should I do after this project?",
+      "content": "1 - Portifolio page\n2 - Just apply to a job",
+      "createdAt": "28/2/2021",
+      "id": 1
     }
   ],
   "stats": [

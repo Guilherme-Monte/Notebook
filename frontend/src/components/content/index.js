@@ -34,8 +34,8 @@ const Content = () => {
 
   const createNoteForm = () => {
     return (
-      <section id="newNote">
-        <input type="text" defaultValue="" placeholder="Write the title here"
+      <section className="note-form">
+        <input className="note-title" type="text" defaultValue="" placeholder="Write the title here"
           onChange={(e) => {
             console.log(note.title);
             setNote(
@@ -43,7 +43,7 @@ const Content = () => {
             )
           }} />
 
-        <input type="text" defaultValue="" placeholder="Type the content here"
+        <textarea className="note-content" type="text" defaultValue="" placeholder="Type the content here"
           onChange={(e) => {
             console.log(note.content);
             setNote(
@@ -51,7 +51,9 @@ const Content = () => {
             )
           }} />
 
-        <button onClick={(e) => { createNote(note) }}>Create</button>
+        <div className="btn-container">
+          <button className="btn-content" onClick={(e) => { createNote(note) }}>Create</button>
+        </div>
       </section>
     )
   };
@@ -69,23 +71,25 @@ const Content = () => {
 
   const renderNoteInfo = () => {
     return (
-      <section id="noteContent">
-        <input type="text" defaultValue={note.title} placeholder="Title"
+      <section className="note-form">
+        <input className="note-title" type="text" defaultValue={note.title} placeholder="Title"
           onChange={(e) => {
             setNote(
               { id: note.id, userId: note.userId, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: note.deleted }
             )
           }} />
 
-        <input type="text" defaultValue={note.content} placeholder="Type the content here..."
+        <textarea className="note-content" type="text" defaultValue={note.content} placeholder="Type the content here..."
           onChange={(e) => {
             setNote(
               { id: note.id, userId: note.userId, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: note.deleted }
             )
           }} />
 
-        <button onClick={(e) => { saveNote(note) }}>Save</button>
-        <button onClick={(e) => { deleteNote(note) }}>Delete</button>
+        <div className="btn-container">
+          <button className="btn-content" onClick={(e) => { saveNote(note) }}>Save</button>
+          <button className="btn-content" onClick={(e) => { deleteNote(note) }}>Delete</button>
+        </div>
       </section>
     )
   };
@@ -126,10 +130,12 @@ const Content = () => {
 
   return (
     <div id="content">
+      <div className="btn-container">
+        <button className="btn-content" onClick={previousNote}>Previous</button>
+        <button className="btn-content" onClick={nextNote}>Next</button>
+      </div>
       <h2 id="noteInfo">{renderNoteInfo()}</h2>
       <h2 id="createNote" className="d-none">{createNoteForm()}</h2>
-      <button className="btn-content" onClick={previousNote}>Previous</button>
-      <button className="btn-content" onClick={nextNote}>Next</button>
     </div>
   )
 }
