@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import "./index.css";
 import { api } from "../../services/api";
-import { SidebarButtonContext } from '../../SidebarButtonContext';
+// import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Content = () => {
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
-  const toggleInputs = useContext(SidebarButtonContext);
+  // const toggleInputs = useContext(SidebarButtonContext);
 
   React.useEffect(() => {
     getNoteInfo();
@@ -27,7 +27,6 @@ const Content = () => {
       .catch((err) => console.log(err));
 
     // Hides the creation form:
-    toggleInputs();
     getNoteInfo();
 
     return response;
@@ -129,8 +128,8 @@ const Content = () => {
     <div id="content">
       <h2 id="noteInfo">{renderNoteInfo()}</h2>
       <h2 id="createNote" className="d-none">{createNoteForm()}</h2>
-      <button onClick={previousNote}>Previous</button>
-      <button onClick={nextNote}>Next</button>
+      <button className="btn-content" onClick={previousNote}>Previous</button>
+      <button className="btn-content" onClick={nextNote}>Next</button>
     </div>
   )
 }

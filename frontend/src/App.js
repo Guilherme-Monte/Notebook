@@ -12,6 +12,10 @@ function App() {
     const forms = document.getElementsByTagName("h2");
     forms[0].classList.toggle("d-none");
     forms[1].classList.toggle("d-none");
+
+    const buttons = document.getElementsByClassName("btn-content");
+    buttons[0].classList.toggle("d-none");
+    buttons[1].classList.toggle("d-none");
   };
 
   return (
