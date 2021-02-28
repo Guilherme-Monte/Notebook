@@ -3,7 +3,7 @@
 
 ## To do:
 - Create and delete for notes ✅
-- Styling
+- Styling ✅
 - Toast for UX when creating/deleting notes
 - Client side handling of bad requests
 - Basic statistics
