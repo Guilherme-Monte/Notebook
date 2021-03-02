@@ -29,7 +29,8 @@
 }
 
 .btn-content:focus,
-input:focus {
+input:focus,
+textarea:focus {
   outline: none !important;
 }
 
