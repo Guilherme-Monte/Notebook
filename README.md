@@ -6,7 +6,7 @@
 - Styling ✅
 - Bright mode (StackOverflow thread on favorites)
 - Toast for UX when creating/deleting notes ⏳ (halfway done)
-- Client side handling of bad requests
+- Client side handling of bad requests ⏳ (halfway done)
 - Basic statistics
 
 # Sidebar desgin from Fireship can be found [here on this YouTube link](https://www.youtube.com/watch?v=biOMz4puGt8&list=WL&index=14&t=74s&ab_channel=Fireship).

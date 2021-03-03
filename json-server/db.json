@@ -4,12 +4,14 @@
       "title": "What should I do after this project?",
       "content": "1 - Portifolio page\n2 - Just apply to a job",
       "createdAt": "28/2/2021",
+      "deleted": false,
       "id": 1
     },
     {
       "title": "Bright mode",
       "content": "The bright mode will come soon!",
       "createdAt": "3/3/2021",
+      "deleted": false,
       "id": 2
     },
     {
