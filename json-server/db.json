@@ -1,27 +1,30 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Adriano Oliveira",
-      "email": "aoliveira@email.com.br"
-    },
-    {
-      "id": 2,
-      "name": "Marcela Julia da Silva",
-      "email": "mjds@empresa.com"
-    },
-    {
-      "id": 3,
-      "name": "Ana Silva",
-      "email": "anasilva@negocio.com"
-    }
-  ],
   "notes": [
     {
       "title": "What should I do after this project?",
       "content": "1 - Portifolio page\n2 - Just apply to a job",
       "createdAt": "28/2/2021",
       "id": 1
+    },
+    {
+      "title": "Bright mode",
+      "content": "The bright mode will come soon!",
+      "createdAt": "3/3/2021",
+      "id": 2
+    },
+    {
+      "title": "Third note",
+      "content": "I'm thinking about adding a new dependency to replace the textarea.\nThe ones that allow you to edit the text and save it the way you want.",
+      "createdAt": "3/3/2021",
+      "deleted": false,
+      "id": 3
+    },
+    {
+      "title": "Bad request handling",
+      "content": "Looks like it's much easier to handle bad request on the back-end perspective.\nJSON-Server is pretty simple on the way it handles the GET requests that are not found. So I have to stick to just telling the user that there isn't a note with this ID and create a limit for 404 requests.",
+      "createdAt": "3/3/2021",
+      "deleted": false,
+      "id": 4
     }
   ],
   "stats": [

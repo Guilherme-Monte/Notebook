@@ -4,7 +4,8 @@
 ## To do:
 - Create and delete for notes ✅
 - Styling ✅
-- Toast for UX when creating/deleting notes
+- Bright mode (StackOverflow thread on favorites)
+- Toast for UX when creating/deleting notes ⏳ (halfway done)
 - Client side handling of bad requests
 - Basic statistics
 

@@ -6,6 +6,7 @@ import { api } from "../../services/api";
 const Content = () => {
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
+  const [requestCounter, setRequestCounter] = useState(0);
   // const toggleInputs = useContext(SidebarButtonContext);
 
   React.useEffect(() => {
@@ -22,13 +23,13 @@ const Content = () => {
       title: note.title,
       content: note.content,
       createdAt: todaysDate,
-      deleted: note.deleted
+      deleted: false
     })
       .catch((err) => console.log(err));
 
-    // Hides the creation form:
     getNoteInfo();
 
+    console.log(response.status);
     return response;
   };
 
@@ -37,17 +38,15 @@ const Content = () => {
       <section className="note-form">
         <input className="note-title" type="text" defaultValue="" placeholder="Write the title here"
           onChange={(e) => {
-            console.log(note.title);
             setNote(
-              { userId: note.userId, title: e.target.value, content: note.content, deleted: note.deleted }
+              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: note.deleted }
             )
           }} />
 
         <textarea className="note-content" type="text" defaultValue="" placeholder="Type the content here"
           onChange={(e) => {
-            console.log(note.content);
             setNote(
-              { userId: note.userId, title: note.title, content: e.target.value, deleted: note.deleted }
+              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: note.deleted }
             )
           }} />
 
@@ -58,14 +57,22 @@ const Content = () => {
     )
   };
 
-  // Do the id verification for when id numbers aren't perfect, intead of 1, 2, 3 we have 1, 5, 7 because the other ones have been deleted
   async function getNoteInfo() {
     try {
       const response = await api.get(`/notes/${selectedId}`);
       setNote(response.data);
     } catch (error) {
-      // Code on this part to handle the issue
-      console.log(error.response.status);
+      if (error.response.status === 404) {
+        if (requestCounter === 3) {
+          console.log("You reached the limit of requests, back to the beginning 👍");
+          setSelectedId(1);
+          setRequestCounter(0);
+        } else {
+          console.log("Looks like we are out of notes ☹️");
+          setRequestCounter(requestCounter + 1);
+        }
+      }
+      return error.response.status;
     }
   };
 
@@ -75,14 +82,14 @@ const Content = () => {
         <input className="note-title" type="text" defaultValue={note.title} placeholder="Title"
           onChange={(e) => {
             setNote(
-              { id: note.id, userId: note.userId, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: note.deleted }
+              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: false }
             )
           }} />
 
         <textarea className="note-content" type="text" defaultValue={note.content} placeholder="Type the content here..."
           onChange={(e) => {
             setNote(
-              { id: note.id, userId: note.userId, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: note.deleted }
+              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: false }
             )
           }} />
 
@@ -97,7 +104,6 @@ const Content = () => {
   async function saveNote(note) {
     const response = await api.put(`/notes/${note.id}`, {
       id: note.id,
-      userId: note.userId,
       title: note.title,
       content: note.content,
       createdAt: note.createdAt,
@@ -120,7 +126,6 @@ const Content = () => {
 
   function nextNote() {
     setSelectedId(selectedId + 1);
-    getNoteInfo();
   };
 
   function previousNote() {
