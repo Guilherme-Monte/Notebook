@@ -117,7 +117,7 @@ const Content = () => {
 
   async function deleteNote(note) {
     try {
-      const response = await api.delete(`/notes/${selectedId}`)
+      const response = await api.delete(`/notes/${note.id}`)
       return response;
     } catch (error) {
       console.log(error);
