@@ -22,7 +22,7 @@
 }
 
 .stats:hover {
-  color: var(--bright-purple);
+  color: var(--hover-color);
 }
 
 .graph {

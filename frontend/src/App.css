@@ -2,7 +2,7 @@
   font-size: 20px;
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
-  --bright-purple: #a55eea;
+  --hover-color: #a55eea;
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --bg-main: #2f3542;
@@ -37,7 +37,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--bright-purple);
+  background-color: var(--hover-color);
 }
 
 .App {

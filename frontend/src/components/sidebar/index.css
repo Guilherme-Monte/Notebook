@@ -54,6 +54,6 @@
 }
 
 .link-text:hover, .icons:hover {
-  color: var(--bright-purple);
+  color: var(--hover-color);
   cursor: pointer;
 }
