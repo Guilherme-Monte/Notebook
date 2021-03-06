@@ -1,0 +1,29 @@
+#toastBox {
+  position: absolute;
+  bottom: 6rem;
+  right: 1rem;
+
+  background-color: var(--bg-primary);
+
+  width: 450px;
+  height: 60px;
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: display var(--transition-speed);
+}
+
+#toastIcon {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+#toastIcon:hover {
+  color: var(--bright-purple);
+}

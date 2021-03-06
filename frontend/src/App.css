@@ -18,6 +18,10 @@
   font-family: Roboto-Mono, monospace;
 }
 
+.d-none {
+  display: none !important;
+}
+
 body {
   margin: 0;
   padding: 0;

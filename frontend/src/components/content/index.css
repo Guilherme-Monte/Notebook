@@ -7,10 +7,6 @@
   background-color: var(--bg-main);
 }
 
-.d-none {
-  display: none;
-}
-
 .btn-container {
   display: flex;
   justify-content: space-between;

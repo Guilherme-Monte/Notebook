@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import "./index.css";
 import { api } from "../../services/api";
+import Toast from "../toast/index";
 // import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Content = () => {
   const [note, setNote] = useState({});
   const [selectedId, setSelectedId] = useState(1);
   const [requestCounter, setRequestCounter] = useState(0);
-  // const toggleInputs = useContext(SidebarButtonContext);
 
   React.useEffect(() => {
     getNoteInfo();
@@ -57,6 +57,12 @@ const Content = () => {
     )
   };
 
+  function toastTimer() {
+    setTimeout(() => {
+      document.getElementById("toastBox").classList.add("d-none");
+    }, 4000);
+  }
+
   async function getNoteInfo() {
     try {
       const response = await api.get(`/notes/${selectedId}`);
@@ -64,11 +70,23 @@ const Content = () => {
     } catch (error) {
       if (error.response.status === 404) {
         if (requestCounter === 3) {
-          console.log("You reached the limit of requests, back to the beginning 👍");
+          document.getElementById("toastBox").classList.remove("d-none");
+          document.getElementById("toastContent")
+            .innerHTML = "No more notes, back to the beginning 👍";
+
+          // 4 seconds until it self closes
+          toastTimer();
+
           setSelectedId(1);
           setRequestCounter(0);
         } else {
-          console.log("Looks like we are out of notes ☹️");
+          document.getElementById("toastBox").classList.remove("d-none");
+          document.getElementById("toastContent")
+            .innerHTML = "Looks like we are out of notes ☹️";
+
+          // 4 seconds until it self closes
+          toastTimer();
+
           setRequestCounter(requestCounter + 1);
         }
       }
@@ -141,6 +159,7 @@ const Content = () => {
       </div>
       <h2 id="noteInfo">{renderNoteInfo()}</h2>
       <h2 id="createNote" className="d-none">{createNoteForm()}</h2>
+      <Toast content="Strange things happened 😕" />
     </div>
   )
 }

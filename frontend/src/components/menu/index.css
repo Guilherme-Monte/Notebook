@@ -1,32 +1,32 @@
 #menu {
-    grid-area: menu;
-    height: 100%;
+  grid-area: menu;
+  height: 100%;
 
-    padding: 0 2rem;
-    background-color: var(--bg-main);
-    z-index: 0;
-    border-bottom: 1px solid var(--text-primary);
+  padding: 0 2rem;
+  background-color: var(--bg-main);
+  z-index: 0;
+  border-bottom: 1px solid var(--text-primary);
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .stats {
-    margin-left: auto;
-    
-    cursor: pointer;
-    display: flex;
-    transition: color var(--transition-speed);
+  margin-left: auto;
+  
+  cursor: pointer;
+  display: flex;
+  transition: color var(--transition-speed);
 }
 
 .stats:hover {
-    color: var(--bright-purple);
+  color: var(--bright-purple);
 }
 
 .graph {
-    margin-left: 0.5rem;
-    height: 30px;
-    width: 30px;
+  margin-left: 0.5rem;
+  height: 30px;
+  width: 30px;
 }
