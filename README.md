@@ -4,7 +4,7 @@
 ## To do:
 - Create and delete for notes ✅
 - Styling ✅
-- Bright mode ([StackOverflow thread on favorites](https://stackoverflow.com/questions/37801882/how-to-change-css-root-color-variables-in-javascript)) ⏳ (halfway done)
+- Bright mode ([StackOverflow thread on favorites](https://stackoverflow.com/questions/37801882/how-to-change-css-root-color-variables-in-javascript)) ✅
 - Toast for UX when creating/deleting notes ✅
 - Client side handling of bad requests ✅
 - Basic statistics
