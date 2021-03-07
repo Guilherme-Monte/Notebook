@@ -13,12 +13,12 @@ const Sidebar = () => {
   }
 
   const brightModeSwitcher = () => {
-    document.documentElement.style.setProperty('--text-primary', '#009dec');
-    document.documentElement.style.setProperty('--text-secondary', '#003b59');
-    document.documentElement.style.setProperty('--hover-color', '#2e86de');
-    document.documentElement.style.setProperty('--bg-primary', '#daf2fe');
+    document.documentElement.style.setProperty('--text-primary', '#a1dfff');
+    document.documentElement.style.setProperty('--text-secondary', '#fff');
+    document.documentElement.style.setProperty('--hover-color', '#c4b781');
+    document.documentElement.style.setProperty('--bg-primary', '#227093');
     document.documentElement.style.setProperty('--bg-secondary', '#002639');
-    document.documentElement.style.setProperty('--bg-main', '#a1dfff');
+    document.documentElement.style.setProperty('--bg-main', '#009dec');
 
     setDarkMode(false);
   }
@@ -37,19 +37,20 @@ const Sidebar = () => {
   return (
     <div id="sidebar">
       <div className="nav-item">
-        {buttonNameSwitcher ? <FaArrowLeft className="icons" /> : <FaFolderPlus className="icons" />}
+        {buttonNameSwitcher ? <FaArrowLeft className="icons" onClick={() => { toggleInputs(); switchName() }} />
+          : <FaFolderPlus className="icons" onClick={() => { toggleInputs(); switchName() }} />}
         <span className="link-text" onClick={() => { toggleInputs(); switchName() }}>
           {buttonNameSwitcher ? "Back" : "New note"}
         </span>
       </div>
       { darkMode ?
         <div className="nav-item">
-          <FaSun className="icons" />
+          <FaSun className="icons" onClick={brightModeSwitcher} />
           <span className="link-text" onClick={brightModeSwitcher}>Bright</span>
         </div>
         :
         <div className="nav-item">
-          <FaMoon className="icons" />
+          <FaMoon className="icons" onClick={darkModeSwitcher} />
           <span className="link-text" onClick={darkModeSwitcher}>Dark</span>
         </div>
       }

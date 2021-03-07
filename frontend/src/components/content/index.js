@@ -5,7 +5,7 @@ import Toast from "../toast/index";
 // import { SidebarButtonContext } from '../../SidebarButtonContext';
 
 const Content = () => {
-  const [note, setNote] = useState({});
+  const [note, setNote] = useState({ id: null, title: "", content: "", createdAt: "", deleted: false });
   const [selectedId, setSelectedId] = useState(1);
   const [requestCounter, setRequestCounter] = useState(0);
 
@@ -39,14 +39,14 @@ const Content = () => {
         <input className="note-title" type="text" defaultValue="" placeholder="Write the title here"
           onChange={(e) => {
             setNote(
-              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: note.deleted }
+              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt }
             )
           }} />
 
         <textarea className="note-content" type="text" defaultValue="" placeholder="Type the content here"
           onChange={(e) => {
             setNote(
-              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: note.deleted }
+              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt }
             )
           }} />
 
@@ -97,17 +97,17 @@ const Content = () => {
   const renderNoteInfo = () => {
     return (
       <section className="note-form">
-        <input className="note-title" type="text" defaultValue={note.title} placeholder="Title"
+        <input className="note-title" type="text" value={note.title} placeholder="Title"
           onChange={(e) => {
             setNote(
-              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt, deleted: false }
+              { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt }
             )
           }} />
 
-        <textarea className="note-content" type="text" defaultValue={note.content} placeholder="Type the content here..."
+        <textarea className="note-content" type="text" value={note.content} placeholder="Type the content here..."
           onChange={(e) => {
             setNote(
-              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt, deleted: false }
+              { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt }
             )
           }} />
 

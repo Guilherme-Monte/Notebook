@@ -1,18 +1,18 @@
 {
   "notes": [
     {
+      "id": 1,
       "title": "What should I do after this project?",
-      "content": "1 - Portifolio page\n2 - Just apply to a job",
+      "content": "1 - Portifolio page\n2 - Just apply to a job\n3 - Keep tinkering on this project",
       "createdAt": "28/2/2021",
-      "deleted": false,
-      "id": 1
+      "deleted": false
     },
     {
+      "id": 2,
       "title": "Bright mode",
-      "content": "The bright mode will come soon!",
+      "content": "The bright mode will come soon!\nI finished it on the 7th of march.\nQuick test...",
       "createdAt": "3/3/2021",
-      "deleted": false,
-      "id": 2
+      "deleted": false
     },
     {
       "title": "Third note",
@@ -27,6 +27,13 @@
       "createdAt": "3/3/2021",
       "deleted": false,
       "id": 4
+    },
+    {
+      "title": "Fifth note for the id test",
+      "content": "The corresponding id must be 5.",
+      "createdAt": "7/3/2021",
+      "deleted": false,
+      "id": 5
     }
   ],
   "stats": [

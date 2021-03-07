@@ -38,7 +38,11 @@ textarea {
 }
 
 .btn-content:active {
-  background-color: var(--text-secondary);
+  background-color: var(--text-primary);
+}
+
+.btn-content:hover {
+  opacity: 0.9;
 }
 
 .note-form {
