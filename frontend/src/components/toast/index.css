@@ -15,7 +15,7 @@
   transition: display var(--transition-speed);
 }
 
-#toastIcon {
+#closeIcon {
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
@@ -24,6 +24,6 @@
   transition: color var(--transition-speed);
 }
 
-#toastIcon:hover {
+#closeIcon:hover {
   color: var(--hover-color);
 }

@@ -38,11 +38,12 @@
   ],
   "stats": [
     {
-      "createdNotes": 0,
-      "deletedNotes": 0,
-      "clicksOnStats": 0,
-      "themeChanges": 0,
-      "clicksOnSocials": 0
+      "createdNotes": 2,
+      "deletedNotes": 2,
+      "clicksOnStats": 44,
+      "themeChanges": 9,
+      "clicksOnSocials": 2,
+      "id": 1
     }
   ]
 }

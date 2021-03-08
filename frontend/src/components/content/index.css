@@ -5,6 +5,7 @@
   padding: 0 2rem;
 
   background-color: var(--bg-main);
+  z-index: -1;
 }
 
 .btn-container {
@@ -52,14 +53,12 @@ textarea {
 }
 
 .note-title {
-  width: 99.65%;
   height: 2rem;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .note-content {
-  width: 99.65%;
   height: 32rem;
   font-size: 1.5rem;
 

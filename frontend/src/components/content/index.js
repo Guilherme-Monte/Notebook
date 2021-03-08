@@ -15,6 +15,32 @@ const Content = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
 
+  // Statistics:
+  async function statCreatedDeleted(deleted = false) {
+    const response = await api.get("/stats/1");
+    if (deleted) {
+      await api.put("/stats/1", {
+        createdNotes: response.data.createdNotes,
+        deletedNotes: response.data.deletedNotes + 1,
+        clicksOnStats: response.data.clicksOnStats,
+        themeChanges: response.data.themeChanges,
+        clicksOnSocials: response.data.clicksOnSocials
+      })
+        .catch((err) => console.log(err));
+    } else {
+      await api.put("/stats/1", {
+        createdNotes: response.data.createdNotes + 1,
+        deletedNotes: response.data.deletedNotes,
+        clicksOnStats: response.data.clicksOnStats,
+        themeChanges: response.data.themeChanges,
+        clicksOnSocials: response.data.clicksOnSocials
+      })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  // CRUD:
+
   async function createNote(note) {
     const rawDate = new Date();
     const todaysDate = `${rawDate.getDate()}/${rawDate.getMonth() + 1}/${rawDate.getFullYear()}`;
@@ -29,7 +55,8 @@ const Content = () => {
 
     getNoteInfo();
 
-    console.log(response.status);
+    statCreatedDeleted();
+    // console.log(response.status);
     return response;
   };
 
@@ -135,7 +162,8 @@ const Content = () => {
 
   async function deleteNote(note) {
     try {
-      const response = await api.delete(`/notes/${note.id}`)
+      const response = await api.delete(`/notes/${note.id}`);
+      statCreatedDeleted(true);
       return response;
     } catch (error) {
       console.log(error);

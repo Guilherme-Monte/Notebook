@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import "./index.css";
 import { SidebarButtonContext } from '../../SidebarButtonContext';
 import { FaFolderPlus, FaSun, FaArrowLeft, FaMoon } from "react-icons/fa";
+import { api } from "../../services/api";
 
 const Sidebar = () => {
   const toggleInputs = useContext(SidebarButtonContext);
@@ -34,6 +35,21 @@ const Sidebar = () => {
     setDarkMode(true);
   }
 
+  // Statistics
+  async function themeChangeCounter() {
+    const response = await api.get("/stats/1");
+    // console.log(response.data.themeChanges);
+
+    await api.put("/stats/1", {
+      createdNotes: response.data.createdNotes,
+      deletedNotes: response.data.deletedNotes,
+      clicksOnStats: response.data.clicksOnStats,
+      themeChanges: response.data.themeChanges + 1,
+      clicksOnSocials: response.data.clicksOnSocials
+    })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div id="sidebar">
       <div className="nav-item">
@@ -45,13 +61,13 @@ const Sidebar = () => {
       </div>
       { darkMode ?
         <div className="nav-item">
-          <FaSun className="icons" onClick={brightModeSwitcher} />
-          <span className="link-text" onClick={brightModeSwitcher}>Bright</span>
+          <FaSun className="icons" onClick={() => { brightModeSwitcher(); themeChangeCounter() }} />
+          <span className="link-text" onClick={() => { brightModeSwitcher(); themeChangeCounter() }}>Bright</span>
         </div>
         :
         <div className="nav-item">
-          <FaMoon className="icons" onClick={darkModeSwitcher} />
-          <span className="link-text" onClick={darkModeSwitcher}>Dark</span>
+          <FaMoon className="icons" onClick={() => { darkModeSwitcher(); themeChangeCounter() }} />
+          <span className="link-text" onClick={() => { darkModeSwitcher(); themeChangeCounter() }}>Dark</span>
         </div>
       }
     </div>

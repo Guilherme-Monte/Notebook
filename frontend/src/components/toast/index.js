@@ -10,7 +10,7 @@ const Toast = (props) => {
   return (
     <aside id="toastBox" className="d-none">
       <span id="toastContent">{props.content}</span>
-      <AiOutlineClose id="toastIcon" onClick={toggleDisplay} />
+      <AiOutlineClose id="closeIcon" onClick={toggleDisplay} />
     </aside>
   )
 }
