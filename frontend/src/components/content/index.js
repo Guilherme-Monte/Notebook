@@ -78,6 +78,7 @@ const Content = () => {
 
         <div className="btn-container">
           <button className="btn-content" onClick={(e) => { createNote(note) }}>Create</button>
+          <button className="btn-content" onClick={(e) => { deleteNote(note) }}>Delete</button>
         </div>
       </section>
     )
@@ -184,8 +185,8 @@ const Content = () => {
         <button className="btn-content" onClick={previousNote}>Previous</button>
         <button className="btn-content" onClick={nextNote}>Next</button>
       </div>
-      <h2 id="noteInfo">{renderNoteInfo()}</h2>
-      <h2 id="createNote" className="d-none">{createNoteForm()}</h2>
+      <h2 className="forms" id="noteInfo">{renderNoteInfo()}</h2>
+      <h2 className="d-none forms" id="createNote">{createNoteForm()}</h2>
       <Toast content="Strange things happened 😕" />
     </div>
   )

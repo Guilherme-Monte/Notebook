@@ -10,6 +10,8 @@
   align-items: center;
 
   font-size: 1.2rem;
+
+  z-index: 1;
 }
 
 .stats {

@@ -8,7 +8,7 @@ import { SidebarButtonContext } from './SidebarButtonContext';
 
 function App() {
   const toggleInputs = () => {
-    const forms = document.getElementsByTagName("h2");
+    const forms = document.getElementsByClassName("forms");
     forms[0].classList.toggle("d-none");
     forms[1].classList.toggle("d-none");
 
