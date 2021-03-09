@@ -1,24 +1,78 @@
 #footer {
-    grid-area: footer;
+  grid-area: footer;
 
-    background-color: var(--bg-primary);
+  background-color: var(--bg-primary);
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 0 2rem;
+  padding: 0 2rem;
 }
 
 #socials {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 #socials > * {
-    margin: 0 0.5rem;
+  margin: 0 0.5rem;
 }
 
 #my-name {
-    color: coral;
+  color: coral;
+}
+
+/* Tooltip */
+#mailTooltip > #tooltipText {
+  visibility: hidden;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+
+  bottom: 0%;
+  right: 2%;
+  margin-left: -60px;
+}
+
+#mailTooltip:hover #tooltipText {
+  visibility: visible;
+}
+
+#mailTooltip #tooltipText::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--bg-secondary) transparent transparent transparent;
+}
+
+@media only screen and (max-width: 800px) {
+  #footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #socials {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  #mailTooltip #tooltipText::after {
+    bottom: 100%;
+    top: auto;
+    border-color: transparent transparent var(--bg-secondary) transparent;
+  }
+
+  #tooltipText {
+    bottom: -23% !important;
+    right: 13.7% !important;
+  }
 }

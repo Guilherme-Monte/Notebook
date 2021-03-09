@@ -52,3 +52,20 @@ body::-webkit-scrollbar-thumb {
       "sidebar content"
       "footer footer";
 }
+
+@media only screen and (max-width: 800px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .App {
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 5rem 1fr 10rem 3rem;
+    grid-template-areas: 
+      "menu"
+      "content"
+      "footer"
+      "sidebar";
+  }
+}

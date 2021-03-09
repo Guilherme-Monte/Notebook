@@ -19,6 +19,7 @@
   
   cursor: pointer;
   display: flex;
+  align-items: center;
   transition: color var(--transition-speed);
 }
 

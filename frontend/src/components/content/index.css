@@ -71,3 +71,14 @@ textarea {
   width: 99.65%;
   background-color: var(--text-primary);
 }
+
+@media only screen and (max-width: 800px) {
+  .note-title,
+  .note-content {
+    width: calc(100vw - 4rem);
+  }
+  
+  .note-content {
+    height: 25rem;
+  }
+}

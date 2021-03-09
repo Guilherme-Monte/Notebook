@@ -50,3 +50,9 @@ ul {
   list-style: none;
   padding-inline-start: 0;
 }
+
+@media only screen and (max-width: 800px) {
+  #statsPanel {
+    width: 100vw;
+  }
+}
