@@ -55,4 +55,10 @@ ul {
   #statsPanel {
     width: 100vw;
   }
+
+  #infoPanel {
+    width: 18rem;
+    height: 15rem;
+    padding: 1rem 2rem;
+  }
 }

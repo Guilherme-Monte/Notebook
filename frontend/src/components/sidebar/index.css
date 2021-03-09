@@ -65,6 +65,10 @@
     flex-direction: row;
   }
 
+  .nav-item {
+    border: 1px solid var(--text-primary);
+  }
+
   .nav-item:last-child {
     margin-top: 0;
   }
