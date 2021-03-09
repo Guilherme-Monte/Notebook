@@ -7,7 +7,6 @@ import { api } from '../../services/api';
 const Footer = () => {
     async function socialsClicksCounter() {
         const response = await api.get("/stats/1");
-        console.log(response.data.clicksOnSocials);
 
         await api.put("/stats/1", {
             createdNotes: response.data.createdNotes,

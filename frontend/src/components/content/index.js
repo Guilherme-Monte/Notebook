@@ -56,7 +56,6 @@ const Content = () => {
     getNoteInfo();
 
     statCreatedDeleted();
-    // console.log(response.status);
     return response;
   };
 
@@ -165,8 +164,8 @@ const Content = () => {
       const response = await api.delete(`/notes/${note.id}`);
       statCreatedDeleted(true);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 

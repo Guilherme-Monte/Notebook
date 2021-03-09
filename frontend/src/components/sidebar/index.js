@@ -38,7 +38,6 @@ const Sidebar = () => {
   // Statistics
   async function themeChangeCounter() {
     const response = await api.get("/stats/1");
-    // console.log(response.data.themeChanges);
 
     await api.put("/stats/1", {
       createdNotes: response.data.createdNotes,

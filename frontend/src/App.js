@@ -6,7 +6,6 @@ import Menu from './components/menu';
 import Sidebar from "./components/sidebar";
 import { SidebarButtonContext } from './SidebarButtonContext';
 
-
 function App() {
   const toggleInputs = () => {
     const forms = document.getElementsByTagName("h2");
@@ -22,8 +21,8 @@ function App() {
     <div className="App">
       <Menu id="menu" />
       <SidebarButtonContext.Provider value={toggleInputs}>
-        <Sidebar id="sidebar" />
         <Content id="content" />
+        <Sidebar id="sidebar" />
       </SidebarButtonContext.Provider>
       <Footer id="footer" />
     </div>

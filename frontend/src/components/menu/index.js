@@ -7,7 +7,6 @@ import StatsPanel from "../statsPanel/index";
 const Menu = () => {
   async function statsClicksCounter() {
     const response = await api.get("/stats/1");
-    // console.log(response.data.clicksOnStats);
 
     await api.put("/stats/1", {
       createdNotes: response.data.createdNotes,
