@@ -21,8 +21,8 @@ function App() {
     <div className="App">
       <Menu id="menu" />
       <SidebarButtonContext.Provider value={toggleInputs}>
-        <Content id="content" />
         <Sidebar id="sidebar" />
+        <Content id="content" />
       </SidebarButtonContext.Provider>
       <Footer id="footer" />
     </div>

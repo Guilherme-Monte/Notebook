@@ -8,6 +8,13 @@ const StatsPanel = () => {
 
   React.useEffect(() => {
     getStats();
+
+    const timer = setInterval(() => { getStats() }, 60000);
+
+    // clearInterval invoked only once on ComponentWillUnMount
+    return () => {
+      clearInterval(timer);
+    }
   }, []);
 
   const toggleDisplay = () => {
@@ -26,14 +33,15 @@ const StatsPanel = () => {
         {stats.map((element) => {
           return (
             <ul key={element}>
-              <li>You created {element.createdNotes} notes.</li>
-              <li>Also deleted {element.deletedNotes} notes.</li>
-              <li>And then clicked {element.clicksOnStats} times on the stats buttons.</li>
-              <li>Let's not forget the {element.themeChanges} times you changed the theme.</li>
-              <li>And also there were {element.clicksOnSocials} visits on my socials!</li>
+              <li>You created <span className="highlighted">{element.createdNotes}</span> notes.</li>
+              <li>Also deleted <span className="highlighted">{element.deletedNotes}</span> notes.</li>
+              <li>And then clicked <span className="highlighted">{element.clicksOnStats}</span> times on the stats buttons.</li>
+              <li>Let's not forget the <span className="highlighted">{element.themeChanges}</span> times you changed the theme.</li>
+              <li>And also there were <span className="highlighted">{element.clicksOnSocials}</span> visits on my socials!</li>
             </ul>
           )
         })}
+        <p>Refreshed every minute!</p>
       </article>
       <AiOutlineClose id="closeIcon" onClick={toggleDisplay} />
     </div>
