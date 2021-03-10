@@ -1,11 +1,16 @@
-# Frontend hosted on port 3000
-# JSON-Server hosted on port 3001
+## Things to improve:
+- Toast for when creating and deleting notes (Could also reset the input's values to make it more clear);
+- Highlight the stats button;
+- Put the statistics on a graph;
+- Use React Router;
+- Include user authentication;
+- Use an API instead of a mockAPI;
 
 ## To do:
 - Create and delete for notes ✅
 - Styling ✅
-- Bright mode ([StackOverflow thread on favorites](https://stackoverflow.com/questions/37801882/how-to-change-css-root-color-variables-in-javascript)) ✅
-- Toast for UX when creating/deleting notes ✅
+- Bright mode ([StackOverflow thread](https://stackoverflow.com/questions/37801882/how-to-change-css-root-color-variables-in-javascript)) ✅
+- Toast for when the request fails to find more notes ✅
 - Client side handling of bad requests ✅
 - Basic statistics ✅
 - Integrate with MockApi ✅
