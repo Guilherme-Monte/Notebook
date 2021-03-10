@@ -78,7 +78,6 @@ const Content = () => {
 
         <div className="btn-container">
           <button className="btn-content" onClick={(e) => { createNote(note) }}>Create</button>
-          <button className="btn-content" onClick={(e) => { deleteNote(note) }}>Delete</button>
         </div>
       </section>
     )
@@ -93,9 +92,9 @@ const Content = () => {
   async function getNoteInfo() {
     try {
       const response = await api.get(`/notes/${selectedId}`);
-      setNote(response.data);
+      setNote(response?.data);
     } catch (error) {
-      if (error.response.status === 404) {
+      if (error?.response?.status === 404) {
         if (requestCounter === 3) {
           document.getElementById("toastBox").classList.remove("d-none");
           document.getElementById("toastContent")
@@ -117,21 +116,20 @@ const Content = () => {
           setRequestCounter(requestCounter + 1);
         }
       }
-      return error.response.status;
     }
   };
 
   const renderNoteInfo = () => {
     return (
       <section className="note-form">
-        <input className="note-title" type="text" value={note.title} placeholder="Title"
+        <input className="note-title" type="text" value={note?.title} placeholder="Title"
           onChange={(e) => {
             setNote(
               { id: note.id, title: e.target.value, content: note.content, createdAt: note.createdAt }
             )
           }} />
 
-        <textarea className="note-content" type="text" value={note.content} placeholder="Type the content here..."
+        <textarea className="note-content" type="text" value={note?.content} placeholder="Type the content here..."
           onChange={(e) => {
             setNote(
               { id: note.id, title: note.title, content: e.target.value, createdAt: note.createdAt }

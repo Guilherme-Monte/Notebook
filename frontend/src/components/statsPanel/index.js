@@ -22,8 +22,8 @@ const StatsPanel = () => {
   }
 
   async function getStats() {
-    const response = await api.get("/stats/1");
-    setStats([response.data]);
+    const response = await api.get("/stats?id=1");
+    setStats([response.data[0]]);
   }
 
   return (
