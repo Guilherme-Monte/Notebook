@@ -1,10 +1,10 @@
 ## Things to improve:
-- Toast for when creating and deleting notes (Could also reset the input's values to make it more clear);
-- Highlight the stats button;
-- Put the statistics on a graph;
-- Use React Router;
-- Include user authentication;
-- Use an API instead of a mockAPI;
+- Toast for when creating and deleting notes (Could also reset the input's values to make it more clear)
+- Highlight the stats button
+- Put the statistics on a graph
+- Use React Router
+- Include user authentication
+- Use an API instead of a mockAPI
 
 ## To do:
 - Create and delete for notes ✅
