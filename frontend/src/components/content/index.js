@@ -105,6 +105,10 @@ const Content = () => {
 
           setSelectedId(1);
           setRequestCounter(0);
+        } else if (error?.response?.status === 429) {
+          document.getElementById("toastBox").classList.remove("d-none");
+          document.getElementById("toastContent")
+            .innerHTML = "API overheating, try again in 10 seconds 😨";
         } else {
           document.getElementById("toastBox").classList.remove("d-none");
           document.getElementById("toastContent")
