@@ -5,6 +5,8 @@
 - Use React Router
 - Include user authentication
 - Use an API instead of a mockAPI
+- Break the code into more components: Buttons and Forms
+- Make the toast with document.createElement() and allowing it to stack on a container
 
 ## To do:
 - Create and delete for notes ✅
@@ -15,4 +17,4 @@
 - Basic statistics ✅
 - Integrate with MockApi ✅
 
-# Sidebar desgin from Fireship can be found [here on this YouTube link](https://www.youtube.com/watch?v=biOMz4puGt8&list=WL&index=14&t=74s&ab_channel=Fireship).
+## Sidebar desgin from Fireship can be found [here on this YouTube link](https://www.youtube.com/watch?v=biOMz4puGt8&list=WL&index=14&t=74s&ab_channel=Fireship).
